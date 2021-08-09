@@ -1,4 +1,4 @@
-package com.example.tictactoe;
+package com.example.tictactoe.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.tictactoe.R;
 import com.example.tictactoe.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.tictactoe;
+package com.example.tictactoe.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tictactoe.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;

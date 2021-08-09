@@ -1,7 +1,8 @@
-package com.example.tictactoe;
+package com.example.tictactoe.ui;
 
 import android.os.Bundle;
 
+import com.example.tictactoe.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
