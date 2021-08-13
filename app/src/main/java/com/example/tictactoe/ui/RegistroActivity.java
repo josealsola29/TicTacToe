@@ -9,13 +9,11 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tictactoe.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.tictactoe.model.User;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +23,7 @@ public class RegistroActivity extends AppCompatActivity {
     String name, email, password;
     private Button btnRegistro;
     private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firestore;
+    private FirebaseFirestore db;
     private ProgressBar pbRegistro;
     private ScrollView formRegistro;
 
@@ -41,6 +39,7 @@ public class RegistroActivity extends AppCompatActivity {
         pbRegistro = findViewById(R.id.pbRegistro);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
         changeRegistroFormVisibility(true);
         eventos();
     }
@@ -66,17 +65,14 @@ public class RegistroActivity extends AppCompatActivity {
     private void createUser() {
         changeRegistroFormVisibility(false);
         firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            Toast.makeText(RegistroActivity.this,
-                                    "Error en el registro.", Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        Toast.makeText(RegistroActivity.this,
+                                "Error en el registro.", Toast.LENGTH_SHORT).show();
+                        updateUI(null);
                     }
                 });
     }
@@ -84,12 +80,20 @@ public class RegistroActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             //Almacenar info del usuario en FireStore
-            //TODO
 
-
-            //Navegar a la siguiente pantalla de la app
-            Intent intent = new Intent(RegistroActivity.this, EncontrarJugadaActivity.class);
-            startActivity(intent);
+            User nuevoUsuario = new User(name, 0, 0);
+            db.collection("users")
+                    .document(user.getUid())
+                    .set(nuevoUsuario)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    //Navegar a la siguiente pantalla de la app
+                    finish();
+                    Intent intent = new Intent(RegistroActivity.this, EncontrarJugadaActivity.class);
+                    startActivity(intent);
+                }
+            });
         } else {
             changeRegistroFormVisibility(true);
             etPassword.setError("Nombre, email y/o contrasela incorrectos.");
