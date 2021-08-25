@@ -85,15 +85,12 @@ public class RegistroActivity extends AppCompatActivity {
             db.collection("users")
                     .document(user.getUid())
                     .set(nuevoUsuario)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    //Navegar a la siguiente pantalla de la app
-                    finish();
-                    Intent intent = new Intent(RegistroActivity.this, EncontrarJugadaActivity.class);
-                    startActivity(intent);
-                }
-            });
+                    .addOnSuccessListener(unused -> {
+                        //Navegar a la siguiente pantalla de la app
+                        finish();
+                        Intent intent = new Intent(RegistroActivity.this, EncontrarJugadaActivity.class);
+                        startActivity(intent);
+                    });
         } else {
             changeRegistroFormVisibility(true);
             etPassword.setError("Nombre, email y/o contrasela incorrectos.");
