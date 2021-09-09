@@ -5,15 +5,159 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <fragment
-        android:id="@+id/nav_host_fragment_content_juego"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <TextView
+        android:id="@+id/tvPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLogo"
+        app:layout_constraintEnd_toStartOf="@+id/ivLogo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivLogo"
+        app:layout_constraintVertical_bias="0.516" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvPlayer2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPlayer1"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+        app:srcCompat="@drawable/ic_tictactoe" />
+
+    <TextView
+        android:id="@+id/tvPlayer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivLogo"
+        app:layout_constraintTop_toTopOf="@+id/ivLogo" />
+
+    <ImageView
+        android:id="@+id/iv0"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:tag="0"
+        app:layout_constraintEnd_toStartOf="@+id/iv1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv1"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="1"
+        app:layout_constraintBottom_toTopOf="@+id/iv4"
+        app:layout_constraintEnd_toStartOf="@+id/iv2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="2"
+        app:layout_constraintBottom_toBottomOf="@+id/iv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv1"
+        app:layout_constraintTop_toTopOf="@+id/iv1"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="3"
+        app:layout_constraintBottom_toBottomOf="@+id/iv4"
+        app:layout_constraintEnd_toStartOf="@+id/iv4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv4"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="4"
+        app:layout_constraintBottom_toTopOf="@+id/iv7"
+        app:layout_constraintEnd_toStartOf="@+id/iv5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv3"
+        app:layout_constraintTop_toBottomOf="@+id/iv1"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="5"
+        app:layout_constraintBottom_toBottomOf="@+id/iv4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv4"
+        app:layout_constraintTop_toTopOf="@+id/iv4"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="6"
+        app:layout_constraintBottom_toBottomOf="@+id/iv7"
+        app:layout_constraintEnd_toStartOf="@+id/iv7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv7"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv6"
+        app:layout_constraintTop_toBottomOf="@+id/iv4"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/iv8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="casillaSeleccionada"
+        android:tag="8"
+        app:layout_constraintBottom_toBottomOf="@+id/iv7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv7"
+        app:layout_constraintTop_toTopOf="@+id/iv7"
+        app:srcCompat="@drawable/ic_black_square_svgrepo_com" />
 </androidx.constraintlayout.widget.ConstraintLayout>

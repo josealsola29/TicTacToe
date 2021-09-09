@@ -64,11 +64,8 @@ public class EncontrarJugadaActivity extends AppCompatActivity {
             buscarJugadaLibre();
         });
 
-        btnRanking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnRanking.setOnClickListener(v -> {
 
-            }
         });
     }
 
@@ -80,14 +77,13 @@ public class EncontrarJugadaActivity extends AppCompatActivity {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (Objects.requireNonNull(task.getResult()).size() == 0) {
-
-                        //TODO   no existen partidas libres crear una nueva
+                        // no existen partidas libres crear una nueva
                         crearNuevaJugada();
                     } else {
                         boolean encontrado = false;
 
                         for (DocumentSnapshot docJugada : task.getResult().getDocuments()) {
-                            if (!docJugada.get("jugadorUnoId").equals("uid")) {
+                            if (!Objects.requireNonNull(docJugada.get("jugadorUnoId")).equals("uid")) {
                                 encontrado = true;
                                 jugadaId = docJugada.getId();
                                 Jugada jugada = docJugada.toObject(Jugada.class);
@@ -114,7 +110,7 @@ public class EncontrarJugadaActivity extends AppCompatActivity {
                                 break;
                             }
 
-                            if(!encontrado) crearNuevaJugada();
+                            if (!encontrado) crearNuevaJugada();
                         }
                     }
                 });
@@ -185,10 +181,13 @@ public class EncontrarJugadaActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!jugadaId.equals("")) {
-            changeMenuVisibility(false);
-            esperarJugador();
-        } else {
+        if (jugadaId != null) {
+            if (!jugadaId.equals("")) {
+                changeMenuVisibility(false);
+                esperarJugador();
+            } else {
+                changeMenuVisibility(true);
+            }
             changeMenuVisibility(true);
         }
         changeMenuVisibility(true);

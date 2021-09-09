@@ -4,14 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_black_square_svgrepo_com.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_console.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_cross_svgrepo_com.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_rank.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/drawable/ic_tictactoe.xml" value="0.1398148148148148" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/activity_encontrar_jugada.xml" value="0.264" />
-        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/activity_juego.xml" value="0.152" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/activity_juego.xml" value="0.16" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/activity_registro.xml" value="0.2" />
-        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/content_juego.xml" value="0.2" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/content_juego.xml" value="0.264" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/dialogo_game_over.xml" value="0.2" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/fragment_first.xml" value="0.10099637681159421" />
+        <entry key="..\:/Users/jalsola/Desktop/INEC_APPS/TicTacToe/app/src/main/res/layout/fragment_second.xml" value="0.264" />
       </map>
     </option>
   </component>
